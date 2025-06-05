@@ -82,7 +82,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
   };
 
   // Mock register function - in a real app, this would make an API call
-  const register = async (name: string, email: string, password: string) => {
+  const register = async (name: string, email: string, _password: string) => {
     // Simulate API call delay
     await new Promise((resolve) => setTimeout(resolve, 1000));
     

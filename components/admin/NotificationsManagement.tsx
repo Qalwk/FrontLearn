@@ -55,7 +55,7 @@ export function NotificationsManagement() {
   const { t, language } = useLanguage();
   const [selectedTab, setSelectedTab] = useState("create");
   const [searchQuery, setSearchQuery] = useState("");
-  const [filteredNotifications, setFilteredNotifications] = useState(mockNotifications);
+  const [_filteredNotifications, _setFilteredNotifications] = useState(mockNotifications);
   const [typeFilter, setTypeFilter] = useState("all");
 
   const form = useForm<NotificationFormValues>({
@@ -74,7 +74,6 @@ export function NotificationsManagement() {
 
   const watchSchedule = form.watch("schedule");
   const watchRecurringType = form.watch("recurringType");
-  const watchReminderEnabled = form.watch("reminderEnabled");
 
   const onSubmit = (data: NotificationFormValues) => {
     console.log("Notification data:", data);

@@ -1,5 +1,5 @@
+import { useLanguage } from "@/entities/i18n/providers/language-provider";
 import { CourseManagement as CourseManagementUI } from "@components/admin/CourseManagement";
-import { useLanguage } from "../../../entities/i18n/providers/language-provider";
 
 interface CourseManagementProps {
   onNavigate: (path: string) => void;
@@ -10,7 +10,7 @@ interface CourseManagementProps {
  * This is a feature-level component that wraps the UI component
  */
 export function CourseManagement({ onNavigate }: CourseManagementProps) {
-  const { language } = useLanguage();
+  const { language: _language } = useLanguage();
   
   // In a real application, we would have business logic here:
   // - API calls to fetch courses

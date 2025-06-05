@@ -5,10 +5,8 @@ import {
   RefreshCcw,
   Clock, 
   Settings as SettingsIcon,
-  Volume2,
   Trophy,
   Medal,
-  Users,
   ChevronUp
 } from "lucide-react";
 import { useState, useEffect, useRef } from "react";
@@ -32,7 +30,7 @@ export function PomodoroTimer() {
   const [currentMode, setCurrentMode] = useState<"focus" | "shortBreak" | "longBreak">("focus");
   const [currentTask, setCurrentTask] = useState("");
   const [completedPomodoros, setCompletedPomodoros] = useState(0);
-  const [pomodorosUntilLongBreak, setPomodorosUntilLongBreak] = useState(4);
+  const [_pomodorosUntilLongBreak, _setPomodorosUntilLongBreak] = useState(4);
 
   // Settings
   const [settings, setSettings] = useState({

@@ -20,7 +20,7 @@ interface TopNavigationProps {
 }
 
 export function TopNavigation({ toggleSidebar }: TopNavigationProps) {
-  const { t } = useLanguage();
+  const { t: _t } = useLanguage();
   const { currentUser, logout } = useAuth();
   const [searchValue, setSearchValue] = useState("");
   

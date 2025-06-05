@@ -5,16 +5,14 @@ import {
   Plus, 
   BookOpen, 
   Image, 
-  Tag, 
   FileText, 
   CheckCircle2, 
   Calendar, 
-  Users, 
   FileQuestion,
   Eye,
   ArrowUpDown,
   Filter,
-  Archive
+  Archive,
 } from "lucide-react";
 import { useState } from "react";
 import { toast } from "sonner";
@@ -27,7 +25,7 @@ import { ImageWithFallback } from "../figma/ImageWithFallback";
 import { Badge } from "../ui/badge";
 import { Button } from "../ui/button";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "../ui/card";
-import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "../ui/dialog";
+import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "../ui/dialog";
 import { Input } from "../ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "../ui/select";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "../ui/table";

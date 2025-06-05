@@ -42,7 +42,7 @@ const COLORS = ['#2563eb', '#3b82f6', '#60a5fa', '#93c5fd', '#bfdbfe'];
 
 export function AdminDashboard() {
   const { t } = useLanguage();
-  const [timeRange, setTimeRange] = useState("month");
+  const [_timeRange, _setTimeRange] = useState("month");
 
   return (
     <div className="container mx-auto py-6 space-y-8">
@@ -229,7 +229,7 @@ export function AdminDashboard() {
                       dataKey="value"
                       label={({ name, percent }) => `${name}: ${(percent * 100).toFixed(0)}%`}
                     >
-                      {quizScoreDistribution.map((entry, index) => (
+                      {quizScoreDistribution.map((_entry, index) => (
                         <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
                       ))}
                     </Pie>

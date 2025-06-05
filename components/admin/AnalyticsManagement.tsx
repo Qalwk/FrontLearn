@@ -12,7 +12,6 @@ import {
 import { useState, useEffect } from "react";
 import { ResponsiveContainer, AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, Legend, PieChart, Pie, Cell } from "recharts";
 
-import { useLanguage } from "../../contexts/LanguageContext";
 import { Badge } from "../ui/badge";
 import { Button } from "../ui/button";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "../ui/card";
@@ -74,7 +73,6 @@ const countryData = [
 const COLORS = ['#2563eb', '#3b82f6', '#60a5fa', '#93c5fd', '#bfdbfe'];
 
 export function AnalyticsManagement() {
-  const { t } = useLanguage();
   const [timeRange, setTimeRange] = useState("month");
   const [searchQuery, setSearchQuery] = useState("");
   const [filteredPages, setFilteredPages] = useState(pageViewsData);
@@ -392,7 +390,7 @@ export function AnalyticsManagement() {
                         dataKey="value"
                         label={({ name, percent }) => `${name}: ${(percent * 100).toFixed(0)}%`}
                       >
-                        {deviceData.map((entry, index) => (
+                        {deviceData.map((_entry, index) => (
                           <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
                         ))}
                       </Pie>

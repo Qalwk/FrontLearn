@@ -1,6 +1,4 @@
 import { LogOut } from "lucide-react";
-
-import { useLanguage } from "@/entities/i18n/providers/language-provider";
 import { User } from "@/entities/session/providers/auth-provider";
 import { Avatar, AvatarFallback, AvatarImage } from "../../../../components/ui/avatar";
 import { Button } from "../../../../components/ui/button";
@@ -14,7 +12,6 @@ interface UserSectionProps {
  * User section for the sidebar showing user info and logout button
  */
 export function UserSection({ user, onLogout }: UserSectionProps) {
-  const { t } = useLanguage();
   
   return (
     <div className="p-4 border-t border-sidebar-border">

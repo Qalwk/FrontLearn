@@ -9,23 +9,17 @@ import {
   Target,
   Flame,
   Coffee,
-  Brain,
   CheckCircle,
-  Medal,
   Lightbulb,
-  Sparkles,
   GraduationCap
 } from "lucide-react";
 
-import { useAuth } from "../contexts/AuthContext";
 import { Badge } from "./ui/badge";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "./ui/card";
 import { Progress } from "./ui/progress";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "./ui/tabs";
 
 export function Achievements() {
-  const { currentUser } = useAuth();
-
   // Organize achievements into categories
   const achievementCategories = [
     {

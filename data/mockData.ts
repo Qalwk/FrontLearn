@@ -1,4 +1,4 @@
-import { Course, Notification, User, UserStats } from "../types";
+import { Course, Notification, UserStats } from "../types";
 
 // Mock User Stats for Admin Dashboard
 export const mockUserStats: UserStats = {

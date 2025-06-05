@@ -83,7 +83,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   }, []);
 
   // Login function
-  const login = async (email: string, password: string, isAdmin: boolean = false) => {
+  const login = async (_email: string, _password: string, isAdmin: boolean = false) => {
     setLoading(true);
     
     try {
@@ -144,7 +144,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   };
 
   // Register function
-  const register = async (name: string, email: string, password: string) => {
+  const register = async (name: string, email: string, _password: string) => {
     setLoading(true);
     
     try {

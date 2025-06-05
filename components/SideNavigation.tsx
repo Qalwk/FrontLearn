@@ -1,6 +1,5 @@
 import {
   LayoutDashboard,
-  GraduationCap,
   Route,
   Trophy,
   Settings,
@@ -10,7 +9,7 @@ import {
   BellDot,
   X,
   Timer,
-  Grid2x2
+  Grid2x2,
 } from "lucide-react";
 
 import { useAuth } from "../contexts/AuthContext";
@@ -32,7 +31,7 @@ export function SideNavigation({
   currentPath,
   onNavigate,
 }: SideNavigationProps) {
-  const { t } = useLanguage();
+  const { t: _t } = useLanguage();
   const { currentUser } = useAuth();
   const isAdmin = currentUser?.role === "admin";
 

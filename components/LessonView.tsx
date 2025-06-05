@@ -25,7 +25,6 @@ export function LessonView({
   onComplete,
   onStartQuiz,
   hasQuiz,
-  onEdit
 }: LessonViewProps) {
   const { language, t } = useLanguage();
 

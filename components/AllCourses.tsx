@@ -7,7 +7,7 @@ import { Badge } from "./ui/badge";
 import { Button } from "./ui/button";
 import { Card, CardContent, CardFooter, CardHeader, CardTitle, CardDescription } from "./ui/card";
 import { Input } from "./ui/input";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "./ui/tabs";
+import { Tabs, TabsList, TabsTrigger } from "./ui/tabs";
 import { mockCourses } from "../data/mockData";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
 
