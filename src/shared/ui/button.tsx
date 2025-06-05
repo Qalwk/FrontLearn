@@ -8,6 +8,7 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
+        fancy: "bg-gradient-to-r from-pink-300 via-pink-400 to-red-300/80 text-white shadow-md backdrop-blur-md border border-pink-200/60 hover:from-pink-400 hover:to-red-400/90 hover:shadow-lg transition-all duration-200",
         default: "bg-primary text-primary-foreground hover:bg-primary/90",
         destructive:
           "bg-destructive text-destructive-foreground hover:bg-destructive/90",
@@ -26,7 +27,7 @@ const buttonVariants = cva(
       },
     },
     defaultVariants: {
-      variant: "default",
+      variant: "fancy",
       size: "default",
     },
   }

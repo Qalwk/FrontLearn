@@ -54,6 +54,7 @@
   body {
     @apply bg-background text-foreground;
     font-feature-settings: "rlig" 1, "calt" 1;
+    color: #2d2d2d;
   }
 }
 
@@ -99,4 +100,19 @@
 .slide-up-enter-active {
   transform: translateY(0);
   opacity: 1;
-} 
+}
+
+/* Fancy Card — минималистичная карточка с блюром, прозрачностью и градиентом */
+.fancy-card {
+  @apply rounded-2xl border border-pink-300 bg-pink-100/60 backdrop-blur-md shadow-md p-8 transition-all duration-300;
+  background-image: linear-gradient(135deg, rgba(255,182,193,0.25) 0%, rgba(255,255,255,0.5) 100%);
+}
+.fancy-card:hover {
+  @apply shadow-lg;
+  background-image: linear-gradient(135deg, rgba(255,182,193,0.35) 0%, rgba(255,105,135,0.18) 100%);
+}
+
+/* Пример цветных полос для скелетонов/плейсхолдеров */
+.fancy-skeleton {
+  @apply h-5 rounded-full my-2 bg-gradient-to-r from-pink-200 via-pink-300 to-pink-400/80;
+}   
