@@ -1,6 +1,7 @@
+import { Toaster } from "sonner";
+
 import { AppProviders } from "./providers";
 import { AppRouter } from "./router";
-import { Toaster } from "sonner";
 
 // Import global styles
 import "../styles/globals.css";
