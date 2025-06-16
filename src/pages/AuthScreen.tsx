@@ -7,9 +7,11 @@ import { useAuth } from "@/app/providers/AuthContext";
 import { useLanguage } from "@/app/providers/LanguageContext";
 import { Button } from "@/shared/ui/button";
 import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from "@/shared/ui/card";
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/shared/ui/form";
+import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from "@/shared/ui/form";
 import { Input } from "@/shared/ui/input";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/shared/ui/tabs";
+import * as Checkbox from "@radix-ui/react-checkbox";
+import { CheckIcon } from "lucide-react";
 
 const loginSchema = z.object({
   email: z.string().email(),
@@ -19,12 +21,17 @@ const loginSchema = z.object({
 const registerSchema = z.object({
   name: z.string().min(2),
   email: z.string().email(),
+  number: z.string().regex(/^\+\d{10,15}$/, { message: ("Invalid phone number format") }),
   password: z.string().min(6),
   confirmPassword: z.string().min(6),
+  agreeToTerms: z.boolean(),
 }).refine(data => data.password === data.confirmPassword, {
   message: "Passwords don't match",
   path: ["confirmPassword"],
-});
+}).refine(data => data.agreeToTerms === true, {
+  message: "Вы должны принять условия использования",
+  path: ["agreeToTerms"],
+})
 
 export function AuthScreen() {
   const { t } = useLanguage();
@@ -44,10 +51,12 @@ export function AuthScreen() {
   const registerForm = useForm<z.infer<typeof registerSchema>>({
     resolver: zodResolver(registerSchema),
     defaultValues: {
-      name: "",
-      email: "",
-      password: "",
-      confirmPassword: "",
+      name: "Ah",
+      email: "ASZADC@gmail.com",
+      number: "+2354234432545",
+      password: "zxczxc",
+      confirmPassword: "zxczxc",
+      agreeToTerms: false,
     },
   });
 
@@ -63,7 +72,7 @@ export function AuthScreen() {
   const onRegisterSubmit = async (data: z.infer<typeof registerSchema>) => {
     setError(null);
     try {
-      await register(data.name, data.email, data.password);
+      await register(data.name, data.email, data.password, data.number);
       setSuccess("Registration successful!");
       setActiveTab("login");
     } catch (err) {
@@ -173,6 +182,20 @@ export function AuthScreen() {
                         </FormItem>
                       )}
                     />
+
+                    <FormField
+                      control={registerForm.control}
+                      name="number"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel>{t("auth.number")}</FormLabel>
+                          <FormControl>
+                            <Input placeholder="+79123456789" {...field} />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
                     
                     <FormField
                       control={registerForm.control}
@@ -197,6 +220,37 @@ export function AuthScreen() {
                           <FormControl>
                             <Input type="password" placeholder="••••••••" {...field} />
                           </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+
+                    <FormField
+                      control={registerForm.control}
+                      name="agreeToTerms"
+                      render={({ field }) => (
+                        <FormItem>
+                          <div className="flex gap-2">
+                            <FormControl>
+                              <Checkbox.Root
+                                checked={field.value}
+                                onCheckedChange={field.onChange}
+                                className="bg-white w-[30px] h-[25px] rounded-[4px] border"
+                              >
+                                <Checkbox.Indicator>
+                                  <CheckIcon />
+                                </Checkbox.Indicator>
+                              </Checkbox.Root>
+                            </FormControl>
+                            <div className="space-y-1 leading-none">
+                              <FormLabel>
+                                Я согласен с условиями использования
+                              </FormLabel>
+                              <FormDescription>
+                                Принимая условия, вы подтверждаете, что ознакомились с ними.
+                              </FormDescription>
+                            </div>
+                          </div>
                           <FormMessage />
                         </FormItem>
                       )}

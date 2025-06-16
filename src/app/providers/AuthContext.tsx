@@ -21,7 +21,7 @@ interface AuthContextType {
   currentUser: User | null;
   loading: boolean;
   login: (email: string, password?: string, isAdmin?: boolean) => Promise<void>;
-  register: (name: string, email: string, password?: string) => Promise<void>;
+  register: (name: string, email: string, password?: string, number?: string) => Promise<void>;
   logout: () => void;
   loginAsUser: () => Promise<void>;
   loginAsAdmin: () => Promise<void>;
@@ -145,9 +145,9 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   };
 
   // Register function
-  const register = async (name: string, email: string, _password?: string) => {
+  const register = async (name: string, email: string, password?: string, number?: string) => {
     setLoading(true);
-    if (_password) console.log(_password); // To satisfy ESLint about unused _password
+    if (password) console.log(password); // To satisfy ESLint about unused password
     
     try {
       // Simulate API call delay
